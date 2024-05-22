@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hosting and Monitoring</title>
+</head>
+<body>
+  <h1>Firebase hosting and monitoring</h1>
+  <p>Click the button for custom log monitoring</p>
+
+  
+
+  <button id="button">Click me</button>
+
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyDwrA6q-qfNXsD87sDnlJc0szAabGdHQiY",
+  authDomain: "fir-bc916.firebaseapp.com",
+  projectId: "fir-bc916",
+  storageBucket: "fir-bc916.appspot.com",
+  messagingSenderId: "689071872628",
+  appId: "1:689071872628:web:cdbda721ae20f5f4b48f21",
+  measurementId: "G-J8X05YF3V8"
+};
+    
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    document.getElementById('button').addEventListener('click', function() {
+      firebase.analytics().logEvent('button_click', {
+        button_name: 'demo_button',
+        page_location: window.location.pathname
+      });
+    });
+  </script>
+
+</body>
+</html>
